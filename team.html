@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <link rel="stylesheet" href="team.css">
+    <link rel="icon"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjUwMTggMkgxMy4wMDM5TDEyLjc2IDExLjY0QzEyLjc0NDQgMTIuMTgzNiAxMi43MzA0IDEyLjgzMTMgMTIuNzI1OCAxM0g4LjYyMDRMMi42MzMgM0gxLjYwMDk3TDIuMTUgMTMuMDEzTDcuMjYwMyAxM0w3LjUwMDggM2gxLjc4MDRMOC41OTk0IDEwLjIxMkwxMS41MDMgM2gxLjUwMTlaIiBmaWxsPSIjODA0N0VGIi8+Cjwvc3ZnPgo="
+        type="image/svg+xml">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            /* Ensure dropdown content is positioned relative to this container */
+        }
+
+        /* Dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            right: 0;
+            top: 100%;
+            min-width: 100%;
+            /* Make dropdown take full width */
+            padding: 0.5rem;
+        }
+
+        /* Show dropdown content when class 'show' is added */
+        .dropdown-content.show {
+            display: block;
+        }
+
+        /* Style for dropdown links */
+        .dropdown-content a {
+            color: #333;
+            padding: 12px;
+            font-size: 1rem;
+            text-align: center;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Hover effect for dropdown links */
+        .dropdown-content a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Style for the hamburger icon */
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            /* Text color */
+            background-color: #3f0071;
+            /* Dark purple background */
+            border: 1px solid #3f0071;
+            /* Match border with background */
+            border-radius: 50%;
+            /* Circular button */
+            padding: 8px;
+            /* Increase padding for better click area */
+            font-size: 1.5rem;
+            /* Adjust font size */
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover effect for the hamburger icon */
+        .dropdown-toggle:hover {
+            background-color: #5e0c9b;
+            /* Lighter purple on hover */
+            border-color: #5e0c9b;
+            /* Match border color on hover */
+            color: #fff;
+            /* White text color on hover */
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav-left {
+                display: none;
+                /* Hide left navigation links on small screens */
+            }
+
+            .nav-right {
+                display: none;
+                /* Hide right navigation links on small screens */
+            }
+
+            .user-icon {
+                display: none;
+                /* Hide user icon on small screens */
+            }
+
+            .dropdown {
+                display: flex;
+                flex-direction: column;
+                /* Show dropdown on small screens */
+            }
+
+            .logo {
+                text-align: center;
+                /* Center logo image */
+            }
+
+            .dropdown-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                /* Text color */
+                background-color: #3f0071;
+                /* Dark purple background */
+                border: 1px solid #3f0071;
+                /* Match border with background */
+                border-radius: 50%;
+                /* Circular button */
+                padding: 8px;
+                /* Increase padding for better click area */
+                font-size: 1.5rem;
+                /* Adjust font size */
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .dropdown-toggle:hover {
+                background-color: #5e0c9b;
+                /* Lighter purple on hover */
+                border-color: #5e0c9b;
+                /* Match border color on hover */
+                color: #fff;
+                /* White text color on hover */
+            }
+
+            .dropdown-content {
+                min-width: 100%;
+                /* Make dropdown take full width */
+                box-shadow: none;
+                /* Remove box-shadow on small screens */
+            }
+
+            .dropdown-content a {
+                padding: 12px;
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .dropdown {
+                display: none;
+                /* Hide dropdown on larger screens */
+            }
+        }
+
+        footer {
+            margin-top: 15px;
+        }
+
+        .footer2 {
+            color: #cccccc;
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .footersection {
+            flex: 1 1 200px;
+            /* Flex-grow, flex-shrink, flex-basis */
+            margin: 10px;
+            text-align: center;
+            /* Center-align text for better appearance on smaller screens */
+        }
+
+        .footersection p {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footersection a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #dddddd;
+            text-decoration: none;
+        }
+
+        .footersection a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footersection div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-direction: row;
+            /* Ensure horizontal alignment */
+            margin-top: 10px;
+        }
+
+        .footersection div a img {
+            width: 25px;
+            height: auto;
+        }
+
+        /* Logo Image */
+        .logoimg {
+            background-image: url(images/M\ logo.jpeg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 150px;
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer2 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footersection {
+                flex: 1 1 auto;
+                margin-top: 20px;
+            }
+
+            .footersection div {
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .footersection div a img {
+                width: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer2 {
+                padding: 10px;
+            }
+
+            .footersection a {
+                font-size: 0.75rem;
+            }
+
+            .logoimg {
+                height: 120px;
+                width: 120px;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header">
+        <nav id="navbar">
+            <div class="nav-left">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#events">Events</a>
+                <a href="portfolio.html">Portfolio</a>
+            </div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Mm logo.jpeg" alt="Logo">
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="team.html">Our Team</a>
+                <a href="contact.html">Contact Us</a>
+                <div class="user-menu">
+                    <img src="images/usericon.png" alt="User Icon" class="user-icon">
+                    <div class="dropdown-menu" id="user-dropdown">
+                        <a id="login-link" href="login.html">Login</a>
+                        <a id="signup-link" href="signup.html">Signup</a>
+                    </div>
+                </div>
+                <a id="logout" href="#" style="display:none;">Logout</a>
+            </div>
+            <!-- Dropdown for mobile view -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" aria-label="Toggle menu">&#9776;</a> <!-- Hamburger Icon -->
+                <div class="dropdown-content">
+                    <a href="./#services">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="./team.html">Our Team</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a id="dropdown-login-link" href="login.html">Login</a>
+                    <a id="dropdown-signup-link" href="signup.html">Signup</a>
+                    <a id="dropdown-logout" href="#" style="display:none;">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="heading">
+        <h2>Hi, We Are The Team Behind</h2>
+        <h1> Modelens!</h1>
+    </div>
+    <div class="container">
+        <header>
+            <div class="founder-section">
+                <div class="founder"></div>
+
+                <div class="foundername">
+                    <h5>Kashish Raizada</h5>
+                    <p>Founder & CEO</p>
+                </div>
+            </div>
+            <div class="aboutfounder">
+                <p>In today's competitive market, standing out is essential for success. Brands, models, and
+                    photographers often struggle to create a unique and captivating visual presence that is within their
+                    budget and resources, and accessible in one place.
+
+                </p>
+
+                <p> At Modelens, we specialize in crafting stunning visuals. We help you tell your unique stories and
+                    connect with your audience through powerful visuals.
+
+                </p>
+
+                <p> Our collaborative approach ensures that everyone we work with receives personalized attention and
+                    customized solutions that truly reflect their essence.
+
+                </p>
+
+                <p> Our Vision is to transform your Ideas into striking visuals that captivate and resonate with your
+                    target audience.
+
+                </p>
+
+            </div>
+
+        </header>
+    </div>
+
+    <div class="containerblock">
+        <div class="teamblock">
+            <div class="card">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Lavanya Khamani_ Co-lead .jpg">
+                </div>
+                <p class="name">
+                    Lavanya Khamani
+                </p>
+                <p class="position">
+                    Co-Lead
+                </p>
+            </div>
+        </div>
+        <div class="teamblock">
+            <div class="card">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Sonia _ Co Lead & Event Manager .jpg">
+                </div>
+                <p class="name">
+                    Sonia
+                </p>
+                <p class="position">
+                    Co-Lead & Event Manager
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="containerblock">
+        <div class="teamblock">
+            <div class="card">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Kanika _ Social Media Writer .jpg">
+                </div>
+                <p class="name">
+                    Kanika
+                </p>
+                <p class="position">
+                    Social Media Writer
+                </p>
+            </div>
+        </div>
+
+        <div class="teamblock">
+            <div class="card">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Karan_video editor .JPG">
+                </div>
+                <p class="name">
+                    Karan Takkar
+                </p>
+                <p class="position">
+                    Video Editor
+                </p>
+            </div>
+        </div>
+
+        <div class="teamblock">
+            <div class="card">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Kamaksi.jpg">
+                </div>
+                <p class="name">
+                    Kamakshi
+                </p>
+                <p class="position">
+                    Social Media Writer
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="containerblock">
+        <div class="teamblock">
+            <div class="card" onclick="redirectTo('https://www.linkedin.com/in/hardikchadha1/')"
+                style="cursor: pointer;">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Hardik manager.jpg">
+                </div>
+                <p class="name">
+                    Hardik
+                </p>
+                <p class="position">
+                    Tech Manager & Web Developer
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="containerblock">
+        <div class="teamblock">
+            <div class="card" onclick="redirectTo('https://www.linkedin.com/in/darakhshan-zehra-6072ba257/')"
+                style="cursor: pointer;">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Darakhshan web developer.jpg">
+                </div>
+                <p class="name">
+                    Darakhshan
+                </p>
+                <p class="position">
+                    Web Developer and Designer
+                </p>
+            </div>
+        </div>
+        <div class="teamblock">
+            <div class="card" onclick="redirectTo('https://www.linkedin.com/in/dhruv-jain-7000b6227/')"
+                style="cursor: pointer;">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Dhruv backend developer.jpg">
+                </div>
+                <p class="name">
+                    Dhruv Jain
+                </p>
+                <p class="position">
+                    Full Stack Developer
+                </p>
+            </div>
+        </div>
+        <div class="teamblock">
+            <div class="card" onclick="redirectTo('https://www.linkedin.com/in/divya-chaudhary-327615285')"
+                style="cursor: pointer;">
+                <div class="team-image-wrapper">
+                    <img class="team-member-image" src="images/Divya Web Developer.jpg">
+                </div>
+                <p class="name">
+                    Divya
+                </p>
+                <p class="position">
+                    Web Developer and Designer
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="line"></div>
+    <footer>
+        <div class="footer2">
+            <div class="footlogo">
+                <div class="logoimg"></div>
+            </div>
+            <div class="footersection">
+                <p><a href="services.html">Services</a></p>
+                <a href="models.html">Models</a>
+                <a href="photographer.html">Photographer</a>
+                <a href="makeup-artists.html">Makeup Artists</a>
+            </div>
+
+            <div class="footersection">
+                <p>Contact</p>
+                <a>New Delhi, Delhi</a>
+                <a href="#" onclick="copyToClipboard()">+91 8178517101</a>
+                <div>
+                    <a href="https://www.instagram.com/modelens.in/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png"
+                            alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/company/modelens/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png"
+                            alt="LinkedIn">
+                    </a>
+                    <a href="mailto:modelensofficial@gmail.com" target="_blank"><img
+                            src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png" alt="Gmail"></a>
+                </div>
+            </div>
+
+            <input type="text" value="+91 8178517101" id="mobileNumber" style="position: absolute; left: -9999px;">
+            <div id="notification" class="notification">
+                Copied the mobile number!
+            </div>
+
+            <div class="footersection">
+                <p>Policy</p>
+                <a href="https://drive.google.com/file/d/1V6d0rccG1SIHewm3YGgiBmJxO__a5cJB/view?usp=sharing"
+                    target="_blank">Terms And Conditions</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function redirectTo(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownContent = document.querySelector('.dropdown-content');
+
+            dropdownToggle.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                dropdownContent.classList.toggle('show'); // Toggle visibility
+            });
+
+            // Close dropdown if clicked outside
+            window.addEventListener('click', function (e) {
+                if (!dropdownToggle.contains(e.target) && !dropdownContent.contains(e.target)) {
+                    dropdownContent.classList.remove('show');
+                }
+            });
+        });
+
+    </script>
+    <script src="contact.js"></script>
+    <script src="config.js"></script>
+    <script src="login-signup.js "></script>
+</body>
+
+</html>

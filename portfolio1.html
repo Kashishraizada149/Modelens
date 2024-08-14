@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourin India Handbags Photoshoot</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        .portfolio-section {
+            position: relative;
+            width: 100%;
+            padding: 40px 0;
+            background-image: linear-gradient(to bottom right, black, #600377, rgb(85, 38, 69), #550569, black);
+            perspective: 1000px;
+        }
+
+        .portfolio-image {
+            background-image: url(images/portfolio/Sourin1.jpg);
+            background-size: contain;
+            background-position: center;
+            position: absolute;
+            top: 10px;
+            left: 15%;
+            width: 70%;
+            height: 19%;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: rotateX(5deg) translateZ(50px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-top: 25vh;
+        }
+
+        .client-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            width: 80%;
+            margin-top: 25%;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-5deg) translateZ(40px);
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+
+        .client-container:hover {
+            transform: rotateY(0deg) translateZ(60px) scale(1.05);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .client-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .client-header strong {
+            font-size: 1.2em;
+            color: black;
+        }
+
+        .client-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: rgb(102, 78, 102);
+        }
+
+        .details-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .detail-item strong {
+            font-weight: bold;
+            color: black;
+        }
+
+        .detail-value {
+            font-size: 0.9em;
+            color: rgb(102, 78, 102);
+        }
+
+        .portfolio-content {
+            padding: 20px;
+            color: white;
+            max-width: 950px;
+            width: 100%;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .section-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            transform: rotateX(5deg) translateZ(30px);
+            transition: transform 0.3s ease-in-out, background 0.3s;
+        }
+
+        .section-container:hover {
+            transform: rotateX(0deg) translateZ(50px) scale(1.05);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: black;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #bbc2c7;
+            padding-bottom: 5px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: rgb(102, 78, 102);
+            margin-bottom: 15px;
+        }
+
+        strong {
+            color: black;
+            font-weight: bold;
+        }
+
+        .img2,
+        .img3 {
+            background-size: contain;
+            background-position: center;
+            height: auto;
+            width: 74%;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-5deg) translateZ(40px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .img2 {
+            background-image: url(images/portfolio/sourin2.jpg);
+            height: 750px;
+        }
+
+        .img3 {
+            background-image: url(images/portfolio/sourin3.jpg);
+            height: 600px;
+        }
+
+        .img2:hover,
+        .img3:hover {
+            transform: rotateY(0deg) translateZ(60px) scale(1.05);
+        }
+
+        @media (max-width: 1024px) {
+
+            .portfolio-image,
+            .img2,
+            .img3 {
+                width: 90%;
+                height: 17%;
+                left: 5%;
+                background-position: center;
+            }
+
+            .client-container {
+                width: 90%;
+                margin-top: 20%;
+            }
+
+            .section-container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .portfolio-image,
+            .img2,
+            .img3 {
+                width: 60%;
+                height: 10%;
+                left: 2.5%;
+                background-position: center;
+            }
+
+            .client-container {
+                width: 95%;
+                margin-top: 15%;
+            }
+
+            .section-container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .portfolio-image {
+                width: 94%;
+                height: 350px;
+                left: 1%;
+                background-position: center;
+            }
+
+            .img2,
+            .img3 {
+                width: 94%;
+                height: 200px;
+                left: 1%;
+                background-position: center;
+            }
+
+            .client-container {
+                width: 98%;
+                margin-top: 10%;
+            }
+
+            .section-container {
+                width: 98%;
+            }
+        }
+    </style>
+    <link rel="icon"
+    href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjUwMTggMkgxMy4wMDM5TDEyLjc2IDExLjY0QzEyLjc0NDQgMTIuMTgzNiAxMi43MzA0IDEyLjgzMTMgMTIuNzI1OCAxM0g4LjYyMDRMMi42MzMgM0gxLjYwMDk3TDIuMTUgMTMuMDEzTDcuMjYwMyAxM0w3LjUwMDggM2gxLjc4MDRMOC41OTk0IDEwLjIxMkwxMS41MDMgM2gxLjUwMTlaIiBmaWxsPSIjODA0N0VGIi8+Cjwvc3ZnPgo="
+    type="image/svg+xml">
+</head>
+
+<body>
+    <section id="project-detail" class="portfolio-section">
+        <div class="portfolio-image"></div>
+        <div class="project-container">
+            <div class="client-container">
+                <div class="client-header">
+                    <strong>Client:</strong>
+                    <span class="client-name">Sourin India handbags Photoshoot</span>
+                </div>
+                <div class="details-container">
+                    <div class="detail-item">
+                        <strong class="project-include-highlight">Project includes:</strong>
+                        <span class="detail-value">10 models, 2 professional photographers, 1 makeup artist</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Date:</strong>
+                        <span class="detail-value">January 2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-container">
+                <h3 class="section-title">The Problem</h3>
+                <p class="section-content">Sourin India wanted to establish a strong presence on Instagram for their
+                    bags. The goal was to create visually striking content that would capture the brand's innovative
+                    spirit and showcase their products effectively using different models and their various
+                    different styles and coloured bags within limited time frame. The challenge was to develop a
+                    photoshoot that not only highlighted the bags but also appealed to a broad Instagram audience.
+                </p>
+            </div>
+            <div class="img2" style="background-image: url(images/portfolio/sourin2.jpg);"></div>
+
+            <div class="section-container">
+                <h3 class="section-title">The Solution</h3>
+                <p class="section-content"><strong>Modern and Trendy Visuals:</strong><br>
+                    We designed a photoshoot that aligns with Sourin India’s brand aesthetics. By selecting trendy
+                    and contemporary settings, the clean and bold imagery ensured the focus remained on the bags.
+                </p>
+
+                <p class="section-content"><strong>Diverse Model Representation:</strong><br>
+                    We incorporated a diverse group of models to represent the inclusivity of the brand. This
+                    approach ensured that the audience could see themselves using Sourin India’s products.</p>
+
+                <p class="section-content"><strong>High-Quality Product Shots:</strong><br>
+                    High-resolution images showcased the bags from multiple angles, providing followers with a clear
+                    and detailed view of the products. This strategy helped highlight the unique features of each
+                    bag.</p>
+
+                <p class="section-content"><strong>Interactive and Engaging Content:</strong><br>
+                    To create an immediate impact, we used dynamic and engaging visual elements, including short
+                    videos and GIFs, to draw attention and provide a unique browsing experience.</p>
+
+                <p class="section-content"><strong>Clear Call to Action:</strong><br>
+                    Each post included strategically placed call-to-action buttons encouraging followers to explore
+                    the products and make purchases directly through Instagram. The seamless integration ensured an
+                    easy shopping experience.</p>
+                <p class="section-content"><strong>Consistent and Cohesive Theme:</strong><br>
+                    The photoshoot maintained a consistent and cohesive theme across all posts, creating a strong
+                    and recognizable brand identity on Instagram.
+                </p>
+            </div>
+
+            <div class="section-container">
+                <h3 class="section-title">The Result</h3>
+                <p class="section-content"><strong>Increased Engagement:</strong><br>
+                    The engaging visuals and interactive content significantly improved user engagement, keeping
+                    followers on the page longer. The visually appealing design led to higher interaction rates.</p>
+
+                <p class="section-content"><strong>Higher Conversion Rates:</strong><br>
+                    The clear and compelling call-to-action buttons led to a higher number of clicks and
+                    conversions. Detailed product images helped reduce hesitation among potential buyers, leading to
+                    increased sales.</p>
+
+                <p class="section-content"><strong>Positive Brand Perception:</strong><br>
+                    The modern and innovative photoshoot enhanced Sourin India’s brand image, positioning them as a
+                    forward-thinking and creative brand. Followers associated the high-quality visuals and
+                    interactive elements with the premium quality of the bags.</p>
+
+                <p class="section-content"><strong>Broader Audience Reach:</strong><br>
+                    The diverse model representation and optimized posts for mobile devices ensured a wider audience
+                    could access and interact with the content, leading to a broader customer base and increased
+                    brand recognition on Instagram.</p>
+
+            </div>
+            <div class="img3" style="background-image: url(images/portfolio/sourin3.jpg);"></div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blysk Jewelleries Photoshoot</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        .portfolio-section {
+            position: relative;
+            width: 100%;
+            padding: 40px 0;
+            background-image: linear-gradient(to bottom right, black, #600377, rgb(85, 38, 69), #550569, black);
+            perspective: 1000px;
+        }
+
+        .portfolio-image {
+            background-image: url(images/portfolio/Blysk1.jpg);
+            background-size: contain;
+            background-position: top 10%;
+            position: absolute;
+            top: 10px;
+            left: 15%;
+            width: 70%;
+            height: 22%;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: rotateX(5deg) translateZ(50px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .project-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-top: 25vh;
+        }
+
+        .client-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            width: 80%;
+            margin-top: 27%;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-5deg) translateZ(40px);
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+
+        .client-container:hover {
+            transform: rotateY(0deg) translateZ(60px) scale(1.05);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .client-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .client-header strong {
+            font-size: 1.2em;
+            color: black;
+        }
+
+        .client-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: rgb(102, 78, 102);
+        }
+
+        .details-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .detail-item strong {
+            font-weight: bold;
+            color: black;
+        }
+
+        .detail-value {
+            font-size: 0.9em;
+            color: rgb(102, 78, 102);
+        }
+
+        .portfolio-content {
+            padding: 20px;
+            color: white;
+            max-width: 950px;
+            width: 100%;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .section-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            transform: rotateX(5deg) translateZ(30px);
+            transition: transform 0.3s ease-in-out, background 0.3s;
+        }
+
+        .section-container:hover {
+            transform: rotateX(0deg) translateZ(50px) scale(1.05);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: black;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #bbc2c7;
+            padding-bottom: 5px;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: rgb(102, 78, 102);
+            margin-bottom: 15px;
+        }
+
+        strong {
+            color: black;
+            font-weight: bold;
+        }
+
+        .img2,
+        .img3 {
+            background-size: cover;
+            height: 500px;
+            width: 60%;
+            margin-bottom: 10px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background-position: top 20%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-5deg) translateZ(40px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .img2:hover,
+        .img3:hover {
+            transform: rotateY(0deg) translateZ(60px) scale(1.05);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        ul {
+            display: flex;
+            width: calc(80% - 2rem);
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.2s ease;
+        }
+
+        ul:is(:hover, :focus-within) img {
+            opacity: calc(0.1 + (var(--active-lerp, 0) * 0.9));
+            filter: grayscale(calc(1 - var(--active-lerp, 0)));
+        }
+
+        :root {
+            --lerp-0: 1;
+            --lerp-1: 0.5787037;
+            --lerp-2: 0.2962963;
+            --lerp-3: 0.125;
+            --lerp-4: 0.037037;
+            --lerp-5: 0.0046296;
+            --lerp-6: 0;
+        }
+
+        a {
+            outline-offset: 4px;
+        }
+
+        li {
+            flex: calc(0.1 + (var(--active-lerp, 0) * 1));
+            transition: flex 0.2s ease;
+        }
+
+        li:is(:hover, :focus-within) {
+            --active-lerp: var(--lerp-0);
+            z-index: 7;
+        }
+
+        li:has(+ li:is(:hover, :focus-within)),
+        li:is(:hover, :focus-within)+li {
+            --active-lerp: var(--lerp-1);
+            z-index: 6;
+        }
+
+        li:has(+ li + li:is(:hover, :focus-within)),
+        li:is(:hover, :focus-within)+li+li {
+            --active-lerp: var(--lerp-2);
+            z-index: 5;
+        }
+
+        li:has(+ li + li + li:is(:hover, :focus-within)),
+        li:is(:hover, :focus-within)+li+li+li {
+            --active-lerp: var(--lerp-3);
+            z-index: 4;
+        }
+
+        li:has(+ li + li + li + li:is(:hover, :focus-within)),
+        li:is(:hover, :focus-within)+li+li+li+li {
+            --active-lerp: var(--lerp-4);
+            z-index: 3;
+        }
+
+        li:has(+ li + li + li + li + li:is(:hover, :focus-within)),
+        li:is(:hover, :focus-within)+li+li+li+li+li {
+            --active-lerp: var(--lerp-5);
+            z-index: 2;
+        }
+
+        li:has(+ li + li + li + li + li + li:is(:hover, :focus-within)),
+        li:is(:hover, :focus-within)+li+li+li+li+li+li {
+            --active-lerp: var(--lerp-6);
+            z-index: 1;
+        }
+
+
+        @media (max-width: 768px) {
+            .portfolio-content {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+
+            .client-container {
+                width: 90%;
+                margin-top: 30%;
+            }
+
+            .img2,
+            .img3 {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .portfolio-image {
+                width: 80%;
+                height: 250px;
+                left: 9%;
+                margin-top: 90px;
+                background-position: center;
+            }
+
+            .img2,
+            .img3 {
+                width: 94%;
+                height: 200px;
+                left: 1%;
+                background-position: center;
+            }
+
+            .client-container {
+                width: 98%;
+                margin-top: 10%;
+            }
+
+            .section-container {
+                width: 98%;
+            }
+        }
+    </style>
+    <link rel="icon"
+    href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjUwMTggMkgxMy4wMDM5TDEyLjc2IDExLjY0QzEyLjc0NDQgMTIuMTgzNiAxMi43MzA0IDEyLjgzMTMgMTIuNzI1OCAxM0g4LjYyMDRMMi42MzMgM0gxLjYwMDk3TDIuMTUgMTMuMDEzTDcuMjYwMyAxM0w3LjUwMDggM2gxLjc4MDRMOC41OTk0IDEwLjIxMkwxMS41MDMgM2gxLjUwMTlaIiBmaWxsPSIjODA0N0VGIi8+Cjwvc3ZnPgo="
+    type="image/svg+xml">
+</head>
+</head>
+
+
+<body>
+    <section id="project-detail" class="portfolio-section">
+        <div class="portfolio-image"></div>
+        <div class="project-container">
+            <div class="client-container">
+                <div class="client-header">
+                    <strong>Client:</strong>
+                    <span class="client-name">Blysk Jewelleries Photoshoot</span>
+                </div>
+                <div class="details-container">
+                    <div class="detail-item">
+                        <strong class="project-include-highlight">Project includes:</strong>
+                        <span class="detail-value">3 professional models, 2 professional photographers, 1 Makeup artist,
+                            event manager team
+                        </span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Date:</strong>
+                        <span class="detail-value"> Feburary 2023</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="section-container">
+                <h3 class="section-title">The Problem</h3>
+                <p class="section-content">Blysk Jewelleries needed to photograph over 100 jewelry pieces in 3-4
+                    hours, requiring three models, two photographers, and a makeup artist. The challenge was to
+                    create professional images that highlighted the brand’s vision and concept, all within a limited
+                    budget. These images needed to be versatile for use across e-commerce platforms, the website,
+                    marketing posters, and banners.</p>
+            </div>
+            <ul class="results">
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk2.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk3.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk5.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk4.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk6.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk7.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk8.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk9.JPG" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk10.JPG" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk11.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk5.jpg" width="500" height="500" alt=""></a>
+                </li>
+                <li class="result">
+                    <a href="#"><img src="images/portfolio/blysk cover page.jpg" width="500" height="500" alt=""></a>
+                </li>
+            </ul>
+
+            <div class="section-container">
+                <h3 class="section-title">The Solution</h3>
+                <p class="section-content"><strong>Efficient Planning and Coordination:</strong><br>
+                    We meticulously planned the photoshoot to maximize efficiency. By organizing the jewelry pieces
+                    and creating a detailed schedule, we ensured that all items would be photographed within the
+                    allocated time.</p>
+
+                <p class="section-content"><strong>Professional and Budget-Friendly Team:</strong><br>
+                    We assembled a professional yet budget-friendly team, including three diverse models, two
+                    experienced photographers, and a skilled makeup artist. This team was chosen to ensure
+                    high-quality results while adhering to the budget.</p>
+
+                <p class="section-content"><strong>High-Quality and Versatile Images:</strong><br>
+                    The photoshoot focused on capturing high-resolution images that showcased the jewelry from
+                    multiple angles. These images were designed to be versatile, suitable for use across various
+                    platforms such as e-commerce sites, the official website, and marketing materials.</p>
+
+                <p class="section-content"><strong>Consistent and Cohesive Visual Style:</strong><br>
+                    We maintained a consistent and cohesive visual style throughout the photoshoot. This ensured
+                    that all images aligned with Blysk Jewelleries' brand aesthetics and could be seamlessly
+                    integrated into different marketing channels.</p>
+
+                <p class="section-content"><strong>Interactive and Engaging Content:</strong><br>
+                    To create immediate impact, we included dynamic shots and close-ups that highlighted the
+                    intricate details of the jewelry. These engaging visuals were designed to attract attention and
+                    provide a unique browsing experience.</p>
+            </div>
+
+            <div class="section-container">
+                <h3 class="section-title">The Result</h3>
+                <p class="section-content"><strong>Successful One-Day Shoot:</strong><br>
+                    The efficient planning and professional team enabled us to successfully photograph over 100
+                    jewelry pieces in a single day, meeting the project requirements and staying within budget.</p>
+
+                <p class="section-content"><strong>Versatile High-Quality Images:</strong><br>
+                    The high-resolution images were versatile and suitable for multiple uses, including e-commerce
+                    listings, the official website, marketing posters, and banners. This versatility ensured a
+                    cohesive brand image across various platforms.</p>
+
+                <p class="section-content"><strong>Increased Engagement:</strong><br>
+                    The engaging and interactive visuals significantly improved user engagement. The high-quality
+                    images and dynamic shots drew more attention and kept viewers engaged longer.</p>
+
+                <p class="section-content"><strong>Higher Conversion Rates:</strong><br>
+                    The clear and detailed product images helped reduce hesitation among potential buyers, leading
+                    to increased sales. The visually appealing content and strategic call-to-action placements
+                    contributed to higher conversion rates.</p>
+
+                <p class="section-content"><strong>Positive Brand Perception:</strong><br>
+                    The professional and cohesive photoshoot enhanced Blysk Jewelleries' brand image, positioning
+                    them as a high-end and creative brand. Customers associated the high-quality visuals with the
+                    premium quality of the jewelry, strengthening brand loyalty and recognition.</p>
+
+                <p class="section-content"><strong>Broader Audience Reach:</strong><br>
+                    The diverse model representation and optimized content for various platforms ensured a wider
+                    audience could access and interact with the brand, leading to increased brand recognition and a
+                    broader customer base.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+
+
+</html>

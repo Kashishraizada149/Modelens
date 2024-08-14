@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Model Booking</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        header {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            /* Black color */
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a,
+        .nav-right a {
+            color: #ffffff;
+            /* White color */
+            text-decoration: none;
+            padding: 14px 16px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            display: none;
+            /* Hide dropdown by default */
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333333;
+            /* Darker grey background */
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+            border-radius: 6px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+            /* Slightly lighter grey */
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            /* Add an arrow to indicate dropdown */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        body {
+            background: #000000;
+            /* Solid black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            /* White text color */
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(to bottom right, #6f42c1, #8a2be2, #9b30ff, #ba55d3, #9370db);
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            /* White text */
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        p.intro-text {
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+            max-width: 400px;
+            line-height: 1.5;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #000000;
+            /* Black background for form */
+            padding: 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 350px;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            /* White color for labels */
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ffffff;
+            /* White border */
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            background: #333333;
+            /* Darker background for inputs */
+            color: #ffffff;
+            /* White text color in inputs */
+        }
+
+        button {
+            padding: 0.8rem 1.2rem;
+            background-color: #6f42c1;
+            /* Purple color */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #5a2d8c;
+            /* Darker purple on hover */
+        }
+
+        .anchorr {
+            color: #d3d3d3;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-left a:hover,
+        .nav-right a:hover {
+            text-decoration: underline;
+        }
+
+        .anchorr:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+
+            .nav-left,
+            .nav-right {
+                display: none;
+                /* Hide original nav items */
+            }
+
+            .dropdown {
+                display: block;
+                /* Show dropdown on small screens */
+            }
+
+            .dropdown-toggle {
+                color: #007BFF;
+            }
+
+            .dropdown-content {
+                min-width: 100%;
+                /* Make dropdown take full width */
+                box-shadow: none;
+                /* Remove box-shadow on small screens */
+            }
+
+            .dropdown-content a {
+                padding: 12px;
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .dropdown {
+                display: none;
+                /* Hide dropdown on larger screens */
+            }
+        }
+
+        .alert {
+            width: 350px;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 2px solid #9c27b0;
+            /* Lighter purple border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            /* Slightly larger text */
+            letter-spacing: 0.5px;
+            /* Subtle letter spacing */
+            animation: fadeIn 0.5s ease-in-out;
+            /* Entry animation */
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #a26cc8, #8e24aa);
+            /* Gradient for success */
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #e08484, #e53935);
+            /* Gradient for danger */
+        }
+
+        .alert-success::before {
+            content: '✔️';
+            margin-right: 10px;
+            color: #00e676;
+            /* Bright green for success icon */
+        }
+
+        .alert-danger::before {
+            content: '❌';
+            margin-right: 10px;
+            color: #ff1744;
+            /* Bright red for danger icon */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        .spinner-container {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            /* Full width of the viewport */
+            height: 100vh;
+            /* Full height of the viewport */
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay to fade background */
+            z-index: 999;
+            /* Ensure it appears above other content */
+            visibility: hidden;
+            /* Hide visibility when not displayed */
+            opacity: 0;
+            /* Hide with opacity */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .spinner-container.show {
+            display: flex;
+            /* Use flexbox to center spinner */
+            justify-content: center;
+            align-items: center;
+            /* Center horizontally and vertically */
+            visibility: visible;
+            /* Make visible */
+            opacity: 1;
+            /* Fully opaque */
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3;
+            /* Light gray border */
+            border-top: 8px solid #6f42c1;
+            /* Purple color for the spinning part */
+            border-radius: 50%;
+            width: 60px;
+            /* Slightly larger size */
+            height: 60px;
+            /* Slightly larger size */
+            animation: spin 1s linear infinite;
+            /* Continuous spinning animation */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjUwMTggMkgxMy4wMDM5TDEyLjc2IDExLjY0QzEyLjc0NDQgMTIuMTgzNiAxMi43MzA0IDEyLjgzMTMgMTIuNzI1OCAxM0g4LjYyMDRMMi42MzMgM0gxLjYwMDk3TDIuMTUgMTMuMDEzTDcuMjYwMyAxM0w3LjUwMDggM2gxLjc4MDRMOC41OTk0IDEwLjIxMkwxMS41MDMgM2gxLjc1MDlaIiBmaWxsPSIjODA0N0VGIi8+Cjwvc3ZnPgo="
+        type="image/svg+xml">
+</head>
+
+<body>
+    <div id="spinner-container" class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="./#services">Services</a>
+                <a href="index.html#events">Events</a>
+                <a href="portfolio.html">Portfolio</a>
+            </div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Mm logo.jpeg" alt="Logo" />
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="contact.html">Contact Us</a>
+                <a id="login-link" href="login.html">Login</a>
+                <a id="signup-link" href="signup.html">Signup</a>
+                <a id="logout" href="#" style="display:none;">Logout</a>
+            </div>
+            <!-- Dropdown for mobile view -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Menu</a>
+                <div class="dropdown-content">
+                    <a href="./#services">Services</a>
+                    <a href="./#work-gallery">Work Gallery</a>
+                    <a href="./team.html">Our Team</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a id="dropdown-login-link" href="login.html">Login</a>
+                    <a id="dropdown-signup-link" href="signup.html">Signup</a>
+                    <a id="dropdown-logout" href="#" style="display:none;">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h2>Welcome Back!</h2>
+    <p class="intro-text">Log in to access your account and book your favorite Person for your next project.</p>
+
+    <div id="alert-container"></div> <!-- Container for alerts -->
+
+    <form id="login-form">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
+        <button type="submit">Sign In</button>
+    </form>
+    <a href="signup.html" class="anchorr">Don't have an account? Sign Up</a>
+
+    <script src="config.js"></script>
+    <script src="login-signup.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('signup') === 'success') {
+                showAlert('Signup successful! You can now log in using your details.', 'success');
+                // Remove the query parameter from the URL after showing the alert
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (document.referrer && !document.referrer.includes('signup.html') && !document.referrer.includes('login.html')) {
+                // Store the referrer in localStorage if it's not the signup page and referrer is not already set
+                localStorage.setItem('referrer', document.referrer);
+            }
+        });
+
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alert-container');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.role = 'alert';
+            alert.innerText = message;
+            alertContainer.appendChild(alert);
+            setTimeout(() => alert.remove(), 5000); // Remove alert after 5 seconds
+        }
+
+        document.getElementById('login-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission
+            document.getElementById('spinner-container').classList.add('show');
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText);
+                }
+
+                const data = await response.json();
+                localStorage.setItem('token', data.token); // Store token in local storage
+                localStorage.setItem('loginTimestamp', Date.now()); // Set login timestamp
+
+                showAlert('Login successful! Redirecting...', 'success');
+                setTimeout(() => {
+                    const referrer = localStorage.getItem('referrer') || 'index.html';
+                    localStorage.removeItem('referrer'); // Clear referrer after redirection
+                    if (referrer.includes('login.html')) {
+                        window.location.href = 'index.html';
+                    } else {
+                        window.location.href = referrer;
+                    }
+                }, 2000); // Redirect after 2 seconds
+            } catch (error) {
+                console.error('Error:', error.message);
+                showAlert('Login failed: \n' + error.message, 'danger');
+            } finally {
+                // Hide the spinner
+                document.getElementById('spinner-container').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>
